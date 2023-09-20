@@ -1,0 +1,9 @@
+az login --service-principal --username d59b7654-b7ce-4e39-ac81-151ed95da0c4 --password ILI8Q~5-G2MaqOad_jJrk8VAnuXmZ1qx3USccb-S --tenant 02feabb9-444e-4f66-9c13-6a8f04b75c2f
+
+
+{
+username: d59b7654-b7ce-4e39-ac81-151ed95da0c4
+Password: ILI8Q~5-G2MaqOad_jJrk8VAnuXmZ1qx3USccb-S
+Tenant ID: 02feabb9-444e-4f66-9c13-6a8f04b75c2f
+SubscriptionID: efc1e7b1-5729-4eea-b33e-12cc6b1c0183
+}
