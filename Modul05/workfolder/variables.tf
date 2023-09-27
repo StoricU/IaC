@@ -1,3 +1,8 @@
+variable "location" {
+    type = string
+    description = "The Azure Region in which all resources should be created"
+}
+
 variable "project" {
   type    = string
   default = "Hvilket prosjekt som bruker ressurs"
