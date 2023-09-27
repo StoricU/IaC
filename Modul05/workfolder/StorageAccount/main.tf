@@ -1,16 +1,16 @@
 terraform {
   required_providers {
     random = {
-      source = "hashicorp/random"
+      source  = "hashicorp/random"
       version = "3.5.1"
     }
   }
 }
 
 resource "random_string" "random_string" {
-    length = 6
-    special = false
-    upper = false
+  length  = 6
+  special = false
+  upper   = false
 }
 
 
@@ -20,4 +20,5 @@ resource "azurerm_storage_account" "sa-demo06" {
   location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  tags                     = var.tags
 }

@@ -17,6 +17,7 @@ module "ResourceGroup" {
   source    = "./ResourceGroup"
   base_name = "moduledemo"
   location  = "westeurope"
+  tags = local.tags
 
 }
 
@@ -25,6 +26,7 @@ module "StorageAccount" {
   base_name = "ModuleDemo"
   rgname    = module.ResourceGroup.rg_name_output
   location  = "westeurope"
+  tags = local.tags
 }
 
 module "vnet" {
@@ -32,6 +34,7 @@ module "vnet" {
   base_name = "vnetdemo"
   rgname    = module.ResourceGroup.rg_name_output
   location  = "westeurope"
+  tags = local.tags
 
 }
 
@@ -41,4 +44,5 @@ module "VM" {
   rgname    = module.ResourceGroup.rg_name_output
   location  = "westeurope"
   nic_linux_id = module.vnet.nic_linux_id
+  tags = local.tags
 }

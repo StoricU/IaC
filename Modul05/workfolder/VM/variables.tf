@@ -18,3 +18,9 @@ variable "nic_linux_id" {
     description = "The ID of the Linux NIC"
   
 }
+
+variable "tags" {
+  description = "A map of tags to add to resources"
+  type        = map(string)
+  default     = {}
+}
