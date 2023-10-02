@@ -1,0 +1,27 @@
+name: Terraform Actions
+
+on:
+  push:
+    branches:
+      - main # Eller hvilken som helst annen gren du vil kjøre denne action på
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      run: |
+        export ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}
+        export ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }}
+        export ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        export ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}
+        terraform init
+        # Du kan legge til andre Terraform-kommandoer her, som terraform plan eller terraform apply
+
+    - name: Terraform Plan
+      run: terraform plan
+
+    # Legg til flere trinn som nødvendig, for eksempel for terraform apply
