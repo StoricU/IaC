@@ -2,6 +2,7 @@ locals {
   workspace_suffix = terraform.workspace == "default" ? "" : terraform.workspace
   rg_name          = "${var.rg_name}-${local.workspace_suffix}"
   sa_name          = "${var.sa_name}${local.workspace_suffix}"
+  #Nettsiden endrer seg basert på workspace med content variabelen:
   content          = "${var.source_content}<br><br>Workspace: ${upper(terraform.workspace)}"
 
 }
@@ -42,4 +43,3 @@ resource "azurerm_storage_blob" "index_html" {
 output "primary_web_endpoint" {
   value = azurerm_storage_account.sa.primary_web_endpoint
 }
-  
