@@ -19,7 +19,7 @@ variable "sa_name" {
 variable "source_content" {
   type        = string
   description = "Innholdet i filen som skal lastes opp"
-  default = "<h1>Mitt første Terraform prosjekt</h1>"
+  default = "<h1>My first Terraform prosjekt</h1>"
 }
   
 variable "index_document" {
