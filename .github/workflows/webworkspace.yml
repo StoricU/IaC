@@ -26,9 +26,18 @@ jobs:
       - name: Terraform workspace select or create dev
         run: terraform workspace select dev || terraform workspace new dev
         working-directory: ${{ env.WORKING_DIR }}
+
+      - name: Check last commit message
+        id: commit
+        run: echo "::set-output name=message::$(git log --format=%B -n 1)"
       
-      - name: Terraform apply dev
-        run: terraform apply -auto-approve
+      - name: 'Conditionally run Terraform action'
+        run: |
+          if [[ "${{ steps.commit.outputs.message }}" == *"destroy"* ]]; then
+            terraform destroy -auto-approve
+          else
+            terraform apply -auto-approve
+          fi
         working-directory: ${{ env.WORKING_DIR }}
 
       - name: Test dev
