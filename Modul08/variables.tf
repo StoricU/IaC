@@ -27,3 +27,16 @@ variable "index_document" {
   description = "Navn på index document"
   default = "index.html"
 }
+
+variable "vnet_name" {
+  type        = string
+  description = "Vnet name"
+  default = "vnet-jm"
+  }
+
+variable "snet_name" {
+  type = string
+  description = "subnet name"
+  default = "internal"
+  
+}
