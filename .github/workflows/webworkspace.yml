@@ -43,7 +43,7 @@ jobs:
       - name: Test dev
         run: |
          if [[ "${{ steps.commit.outputs.message }}" == *"destroy"* ]]; then
-          return
+          echo "Skipping due to 'destroy' in the commit message."
          else
           curl $(terraform output -raw primary_web_endpoint)
          fi 
@@ -80,7 +80,7 @@ jobs:
       - name: Test stage
         run: |
          if [[ "${{ steps.commit.outputs.message }}" == *"destroy"* ]]; then
-          return
+          echo "Skipping due to 'destroy' in the commit message."
          else
           curl $(terraform output -raw primary_web_endpoint)
          fi 
@@ -130,7 +130,7 @@ jobs:
         id: get_web_endpoint
         run: |
          if [[ "${{ steps.commit.outputs.message }}" == *"destroy"* ]]; then
-          return
+          echo "Skipping due to 'destroy' in the commit message."
          else
           echo "WEB_ENDPOINT=$(terraform output -raw primary_web_endpoint)" 
          fi
