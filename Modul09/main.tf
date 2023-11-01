@@ -44,6 +44,7 @@ output "primary_web_endpoint" {
   value = azurerm_storage_account.sa.primary_web_endpoint
 }
 
+/*
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.vnet_name}-${local.workspace_suffix}"
   address_space       = ["10.0.0.0/16"]
@@ -121,3 +122,4 @@ resource "azurerm_linux_virtual_machine" "linux-demo" {
     version   = "latest"
   }
 }
+*/
