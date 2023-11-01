@@ -2,6 +2,8 @@ name: Terraform CI/CD Modul08
 
 on:
   push:
+    branches-ignore:
+      - 'main'
     paths:
       - 'Modul08/**'
 
