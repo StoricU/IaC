@@ -2,7 +2,7 @@ locals {
   workspace_suffix = terraform.workspace == "default" ? "" : terraform.workspace
   rg_name          = terraform.workspace == "default" ? "${var.rg_name}" : "${var.rg_name}-${local.workspace_suffix}"
   sa_name          = terraform.workspace == "default" ? "${var.sa_name}" : "${var.sa_name}${local.workspace_suffix}"
-  #Nettsiden endrer seg basert på workspace med content variabelen:  
+  #Nettsiden endrer seg basert på workspace med content variabelen: 
   content = "${var.source_content}<br><br>Workspace: ${upper(terraform.workspace)}"
 
 }
@@ -25,6 +25,7 @@ resource "azurerm_storage_account" "sa" {
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  min_tls_version          = "TLS1_2"
 
   static_website {
     index_document = var.index_document
