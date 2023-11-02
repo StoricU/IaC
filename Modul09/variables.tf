@@ -7,7 +7,7 @@ variable "location" {
 variable "rg_name" {
   type        = string
   description = "Navn på resource groups"
-  default = "rg-jm"
+  default = "rg-modul09-jm"
 }
 
 variable "sa_name" {
