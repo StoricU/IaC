@@ -122,4 +122,5 @@ resource "azurerm_linux_virtual_machine" "linux-demo" {
     version   = "latest"
   }
 }
+no vm
 */
