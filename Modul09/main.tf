@@ -2,7 +2,7 @@ locals {
   workspace_suffix = terraform.workspace == "default" ? "" : terraform.workspace
   rg_name          = terraform.workspace == "default" ? "${var.rg_name}" : "${var.rg_name}-${local.workspace_suffix}"
   sa_name          = terraform.workspace == "default" ? "${var.sa_name}" : "${var.sa_name}${local.workspace_suffix}"
-  #Nettsiden endrer seg basert på workspace med content variabelen: 
+  #Nettsiden endrer seg basert på workspace med content variabelen:  
   content = "${var.source_content}<br><br>Workspace: ${upper(terraform.workspace)}"
 
 }
