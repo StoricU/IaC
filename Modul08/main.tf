@@ -65,6 +65,10 @@ resource "azurerm_public_ip" "pip-linux" {
   allocation_method   = "Static"
 }
 
+output "public_ip_address" {
+  value = azurerm_public_ip.pip-linux.ip_address
+}
+
 resource "azurerm_network_interface" "nic" {
   name                = "linux-nic-${local.workspace_suffix}"
   location            = azurerm_resource_group.rg.location
